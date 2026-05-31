@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en"><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Quick Start Guide</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg-card: #1a1d27;
+    --bg-code: #151821;
+    --fg: #e1e4ea;
+    --fg-dim: #8b8fa3;
+    --accent: #6c8aff;
+    --border: #262a38;
+    --radius: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  main { max-width: 960px; margin: 0 auto; padding: 60px 20px 80px; }
+
+  .hero {
+    text-align: center;
+    padding: 40px 0;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .hero .subtitle {
+    font-size: 18px;
+    color: var(--fg-dim);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  section { margin-top: 48px; }
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 24px 0 10px;
+  }
+  p, li { color: var(--fg-dim); }
+  p { margin-bottom: 12px; }
+
+  ul, ol { padding-left: 20px; margin-bottom: 16px; }
+  li { margin-bottom: 6px; }
+
+  pre {
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  code {
+    font-family: "SF Mono", "Cascadia Code", "Fira Code", "JetBrains Mono", Consolas, monospace;
+    font-size: 14px;
+  }
+  p code, li code {
+    background: var(--bg-code);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    background: var(--bg-card);
+    color: var(--fg);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  td { color: var(--fg-dim); }
+  tr:last-child td { border-bottom: none; }
+
+  .callout {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+
+  .screenshot {
+    width: 100%;
+    max-width: 800px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin: 16px 0;
+    display: block;
+  }
+
+  .step-number {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 600;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 28px; }
+    main { padding: 40px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+<section class="hero">
+  <h1>API Quick Start Guide</h1>
+  <p class="subtitle">
+    OpenAI-compatible API. Just change the base URL and API key to get started.
+  </p>
+</section>
+
+<!-- Getting Started -->
+<section id="getting-started">
+  <h2>Getting Started</h2>
+  <p>Follow these steps to redeem your code and create an API key.</p>
+
+  <h3><span class="step-number">1</span>Access Redeem Page</h3>
+  <p>Log in to the platform and navigate to the redeem page from the navigation menu.</p>
+  <img src="sceenshots/1redeem.jpg" alt="Access Redeem Page" class="screenshot">
+
+  <h3><span class="step-number">2</span>Enter Redeem Code</h3>
+  <p>Input your redeem code in the designated field and click the redeem button to activate your account balance.</p>
+  <img src="sceenshots/2inputRedeemcode.jpg" alt="Enter Redeem Code" class="screenshot">
+
+  <h3><span class="step-number">3</span>Create API Key</h3>
+  <p>After redeeming, go to the API Keys section and create a new API key. Give it a name and click create.</p>
+  <img src="sceenshots/3createAPIKey.jpg" alt="Create API Key" class="screenshot">
+
+  <h3><span class="step-number">4</span>View API Key Details</h3>
+  <p>Your API key will be displayed. Copy and save it securely - you'll need it for API calls.</p>
+  <img src="sceenshots/4group.jpg" alt="API Key Details" class="screenshot">
+
+  <h3><span class="step-number">5</span>How to Use</h3>
+  <p>Use your API key in your code. Set the base URL to <code>https://aix.norvo.top</code> and include your API key in the authorization header.</p>
+  <img src="sceenshots/5howuse.jpg" alt="How to Use API Key" class="screenshot">
+
+  <div class="callout">
+    <strong>Important:</strong> Keep your API key secure and never share it publicly. Treat it like a password.
+  </div>
+</section>
+
+<!-- Quick Start -->
+<section id="quickstart">
+  <h2>Quick Start</h2>
+
+  <h3>Python</h3>
+  <pre><code>from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://aix.norvo.top",
+    api_key="YOUR_API_KEY"
+)
+
+response = client.chat.completions.create(
+    model="deepseek-v4-pro",
+    messages=[{"role": "user", "content": "Hello!"}]
+)
+
+print(response.choices[0].message.content)</code></pre>
+
+  <h3>cURL</h3>
+  <pre><code>curl https://aix.norvo.top/chat/completions \ \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \ \
+  -d '{
+    "model": "deepseek-v4-pro",
+    "messages": [{"role": "user", "content": "Hello!"}]
+  }'</code></pre>
+
+  <h3>Node.js</h3>
+  <pre><code>import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://aix.norvo.top",
+  apiKey: "YOUR_API_KEY",
+});
+
+const response = await client.chat.completions.create({
+  model: "deepseek-v4-pro",
+  messages: [{ role: "user", content: "Hello!" }],
+});
+
+console.log(response.choices[0].message.content);</code></pre>
+
+  <div class="callout">
+    <strong>That's it.</strong> If you've used OpenAI's API before, you already know how to use this API.
+  </div>
+</section>
+
+
+<!-- SDK Integration -->
+<section id="sdk">
+  <h2>SDK Integration</h2>
+
+  <h3>Environment Variables (recommended)</h3>
+  <pre><code>export OPENAI_BASE_URL="https://aix.norvo.top"
+export OPENAI_API_KEY="YOUR_API_KEY"</code></pre>&gt;
+
+  <h3>LangChain (Python)</h3>
+  <pre><code>from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    base_url="https://aix.norvo.top",
+    api_key="YOUR_API_KEY",
+    model="deepseek-v4-pro",
+)</code></pre>
+
+  <h3>Go</h3>
+  <pre><code>import "github.com/openai/openai-go"
+
+client := openai.NewClient(
+  openai.WithBaseURL("https://aix.norvo.top"),
+  openai.WithAPIKey("YOUR_API_KEY"),
+)</code></pre>
+</section>
+
+<!-- Tool Integration -->
+<section id="tools">
+  <h2>Tool Integration</h2>
+
+  <h3>Continue.dev (VS Code / JetBrains)</h3>
+  <p>Add this to your <code>config.json</code>:</p>
+  <pre><code>{
+  "models": [{
+    "title": "My API",
+    "provider": "openai",
+    "model": "deepseek-v4-pro",
+    "apiBase": "https://aix.norvo.top",
+    "apiKey": "YOUR_API_KEY"
+  }]
+}</code></pre>
+
+  <h3>Aider</h3>
+  <pre><code>export OPENAI_API_BASE=https://aix.norvo.top
+export OPENAI_API_KEY=YOUR_API_KEY</code></pre>
+
+  <h3>Open WebUI</h3>
+  <ol>
+    <li>Go to <strong>Admin Panel → Settings → Connections</strong></li>
+    <li>Click <strong>"Add a Connection"</strong></li>
+    <li>Choose <strong>"OpenAI API"</strong></li>
+    <li>Set <strong>API URL</strong> to <code>https://aix.norvo.top</code></li>
+    <li>Set <strong>API Key</strong> to your key</li>
+    <li>Save — the models appear automatically</li>
+  </ol>
+</section>
+
+<!-- Errors -->
+<section id="errors">
+  <h2>Common Errors</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Message</th>
+          <th>Fix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>401</td>
+          <td>Unauthorized</td>
+          <td>Check your <code>Authorization</code> header</td>
+        </tr>
+        <tr>
+          <td>429</td>
+          <td>Too Many Requests</td>
+          <td>Reduce request frequency, retry with backoff</td>
+        </tr>
+        <tr>
+          <td>502</td>
+          <td>Bad Gateway</td>
+          <td>Retry in a few seconds</td>
+        </tr>
+        <tr>
+          <td>504</td>
+          <td>Gateway Timeout</td>
+          <td>Reduce <code>max_tokens</code> or try a different model</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
