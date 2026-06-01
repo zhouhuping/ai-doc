@@ -3,7 +3,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>API Quick Start Guide</title>
+<title>Norvo AI User Guide</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -84,6 +84,11 @@
     border: 1px solid var(--border);
     font-size: 13px;
   }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
 
   .table-wrap {
     overflow-x: auto;
@@ -153,10 +158,53 @@
 <main>
 
 <section class="hero">
-  <h1>API Quick Start Guide</h1>
+  <h1>Norvo AI User Guide</h1>
   <p class="subtitle">
-    OpenAI-compatible API. Just change the base URL and API key to get started.
+    Anthropic/OpenAI-compatible API. Just change the base URL and API key to get started.
   </p>
+</section>
+
+<!-- Configuration Overview -->
+<section id="configuration-overview">
+  <h2>Configuration Overview</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Group</th>
+          <th>Protocol</th>
+          <th>OpenAI Compatibility</th>
+          <th>Supported Models</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>deepseek-v4</code></td>
+          <td>Anthropic</td>
+          <td>Supports Chat and Responses</td>
+          <td><code>deepseek-v4-pro</code>, <code>deepseek-v4-flash</code></td>
+        </tr>
+        <tr>
+          <td><code>kimi-k2.6</code></td>
+          <td>Anthropic</td>
+          <td>Not supported</td>
+          <td><code>kimi-k2.6</code></td>
+        </tr>
+        <tr>
+          <td><code>glm-5.1</code></td>
+          <td>Anthropic</td>
+          <td>Supports Chat, does not support Responses</td>
+          <td><code>glm-5.1</code></td>
+        </tr>
+        <tr>
+          <td><code>codex-cheapest</code> / <code>codex-cheap</code> / <code>codex-stable</code></td>
+          <td>OpenAI</td>
+          <td>Natively supported</td>
+          <td><code>gpt-5.5</code>, <code>gpt-5.4</code>, <code>gpt-image-2</code>, etc.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- Getting Started -->
@@ -166,23 +214,22 @@
 
   <h3><span class="step-number">1</span>Access Redeem Page</h3>
   <p>Log in to the platform and navigate to the redeem page from the navigation menu.</p>
-  <img src="sceenshots/1redeem.jpg" alt="Access Redeem Page" class="screenshot">
+  <img src="sceenshots/1redeem.png" alt="Access Redeem Page" class="screenshot" style="max-width:500px">
 
   <h3><span class="step-number">2</span>Enter Redeem Code</h3>
   <p>Input your redeem code in the designated field and click the redeem button to activate your account balance.</p>
-  <img src="sceenshots/2inputRedeemcode.jpg" alt="Enter Redeem Code" class="screenshot">
+  <img src="sceenshots/2inputRedeemcode.png" alt="Enter Redeem Code" class="screenshot">
 
   <h3><span class="step-number">3</span>Create API Key</h3>
-  <p>After redeeming, go to the API Keys section and create a new API key. Give it a name and click create.</p>
+  <p>After redeeming, go to the API Keys section and Click create API key. </p>
   <img src="sceenshots/3createAPIKey.jpg" alt="Create API Key" class="screenshot">
 
-  <h3><span class="step-number">4</span>View API Key Details</h3>
-  <p>Your API key will be displayed. Copy and save it securely - you'll need it for API calls.</p>
-  <img src="sceenshots/4group.jpg" alt="API Key Details" class="screenshot">
+  <p>Give it a name and select a group you want to use, then click Create. Your API key will be displayed. Copy and save it securely - you'll need it for API calls.</p>
+  <img src="sceenshots/4group.png" alt="API Key Details" class="screenshot" style="max-width:540px">
 
   <h3><span class="step-number">5</span>How to Use</h3>
   <p>Use your API key in your code. Set the base URL to <code>https://aix.norvo.top</code> and include your API key in the authorization header.</p>
-  <img src="sceenshots/5howuse.jpg" alt="How to Use API Key" class="screenshot">
+  <img src="sceenshots/5howuse.png" alt="How to Use API Key" class="screenshot">
 
   <div class="callout">
     <strong>Important:</strong> Keep your API key secure and never share it publicly. Treat it like a password.
@@ -237,62 +284,85 @@ console.log(response.choices[0].message.content);</code></pre>
   </div>
 </section>
 
-
-<!-- SDK Integration -->
-<section id="sdk">
-  <h2>SDK Integration</h2>
-
-  <h3>Environment Variables (recommended)</h3>
-  <pre><code>export OPENAI_BASE_URL="https://aix.norvo.top"
-export OPENAI_API_KEY="YOUR_API_KEY"</code></pre>&gt;
-
-  <h3>LangChain (Python)</h3>
-  <pre><code>from langchain_openai import ChatOpenAI
-
-llm = ChatOpenAI(
-    base_url="https://aix.norvo.top",
-    api_key="YOUR_API_KEY",
-    model="deepseek-v4-pro",
-)</code></pre>
-
-  <h3>Go</h3>
-  <pre><code>import "github.com/openai/openai-go"
-
-client := openai.NewClient(
-  openai.WithBaseURL("https://aix.norvo.top"),
-  openai.WithAPIKey("YOUR_API_KEY"),
-)</code></pre>
-</section>
-
 <!-- Tool Integration -->
 <section id="tools">
   <h2>Tool Integration</h2>
 
-  <h3>Continue.dev (VS Code / JetBrains)</h3>
-  <p>Add this to your <code>config.json</code>:</p>
-  <pre><code>{
-  "models": [{
-    "title": "My API",
-    "provider": "openai",
-    "model": "deepseek-v4-pro",
-    "apiBase": "https://aix.norvo.top",
-    "apiKey": "YOUR_API_KEY"
-  }]
-}</code></pre>
+  <h3>Claude Code</h3>
+  <p>Claude Code is an AI coding assistant that runs in the terminal.</p>
+  <p>Install Claude Code CLI from <a href="https://github.com/anthropics/claude-code">https://github.com/anthropics/claude-code</a>.</p>
 
-  <h3>Aider</h3>
-  <pre><code>export OPENAI_API_BASE=https://aix.norvo.top
-export OPENAI_API_KEY=YOUR_API_KEY</code></pre>
+  <p><strong>Linux / Mac:</strong></p>
+  <pre><code>export ANTHROPIC_BASE_URL=https://aix.norvo.top
+export ANTHROPIC_AUTH_TOKEN=&lt;your API Key&gt;
+export ANTHROPIC_MODEL=deepseek-v4-pro
+export ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro
+export ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro
+export ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-pro
+export CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-pro
+export CLAUDE_CODE_EFFORT_LEVEL=max</code></pre>
 
-  <h3>Open WebUI</h3>
+  <p><strong>Windows PowerShell:</strong></p>
+  <pre><code>$env:ANTHROPIC_BASE_URL="https://aix.norvo.top"
+$env:ANTHROPIC_AUTH_TOKEN="&lt;your API Key&gt;"
+$env:ANTHROPIC_MODEL="deepseek-v4-pro"
+$env:ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro"
+$env:ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro"
+$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-v4-pro"
+$env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-pro"
+$env:CLAUDE_CODE_EFFORT_LEVEL="max"</code></pre>
+
+  <p>Then enter your project directory and run Claude Code:</p>
+  <pre><code>cd /path/to/my-project
+claude</code></pre>
+  <div class="callout">
+    <strong>Tip:</strong> You can replace the model with <code>deepseek-v4-flash</code>, <code>kimi-k2.6</code>, or <code>glm-5.1</code>. Make sure your API key matches the model you use.
+  </div>
+	<hr/>
+  <h3>Claude Code via CC-Switch</h3>
+  <p>Install CC-Switch from <a href="https://github.com/farion1231/cc-switch">https://github.com/farion1231/cc-switch</a>.</p>
   <ol>
-    <li>Go to <strong>Admin Panel → Settings → Connections</strong></li>
-    <li>Click <strong>"Add a Connection"</strong></li>
-    <li>Choose <strong>"OpenAI API"</strong></li>
-    <li>Set <strong>API URL</strong> to <code>https://aix.norvo.top</code></li>
-    <li>Set <strong>API Key</strong> to your key</li>
-    <li>Save — the models appear automatically</li>
+    <li>Select <strong>Claude</strong> tab panel</li>
+    <li>Click the <strong>+</strong> icon to add a new provider</li>
+    <li>Set <strong>Provider Preset</strong> to <strong>Custom Configuration</strong></li>
+    <li>Enter a provider name, for example <code>Norvo Deepseek</code></li>
+    <li>Set <strong>API Endpoint</strong> to <code>https://aix.norvo.top</code>, then paste your API key</li>
+    <li>Set all model inputs to <code>deepseek-v4-pro</code> or another supported model name</li>
+	<li>Click `+ Add`</li>
   </ol>
+  <p>Then enter your project directory and run Claude Code:</p>
+  <pre><code>cd /path/to/my-project
+claude</code></pre>
+  <img src="sceenshots/ccswitchclaude.png" class="screenshot">	
+  <hr/>
+  <h3>Codex via CC-Switch</h3>
+   <p>Install Codex CLI from <a href="https://github.com/openai/codex">https://github.com/openai/codex</a>.</p>
+  <p>Install CC-Switch from <a href="https://github.com/farion1231/cc-switch">https://github.com/farion1231/cc-switch</a>.</p>
+  <ol>
+    <li>Select <strong>Codex</strong> tab panel</li>
+    <li>Click the <strong>+</strong> icon to add a new provider</li>
+    <li>Set <strong>Provider Preset</strong> to <strong>Custom Configuration</strong></li>
+    <li>Enter a provider name, for example <code>Norvo gpt</code></li>
+    <li>Set <strong>API Endpoint</strong> to <code>https://aix.norvo.top</code>, then paste your API key</li>
+    <li>Set model to <code>gpt-5.4</code> or <code>gpt-5.5</code> or another supported model name</li>
+	<li>Click `+ Add`</li>
+  </ol>
+  <p>Then enter your project directory and run Codex:</p>
+  <pre><code>cd /path/to/my-project
+codex</code></pre>
+ <hr/>
+  <h3>Cherry Studio</h3>
+  <p>Install it from <a href="https://github.com/CherryHQ/cherry-studio">https://github.com/CherryHQ/cherry-studio</a>.</p>
+  <ol>
+    <li>Go to <strong>Settings → Model Provider</strong></li>
+    <li>Click <strong>"+ Add"</strong></li>
+    <li>Enter a name, choose <strong>Anthropic</strong> or <strong>OpenAI</strong> as the protocol type, then click <strong>OK</strong></li>
+    <li>Select the provider you just created. Set <strong>API Host</strong> to <code>https://aix.norvo.top</code>, then paste your API key</li>
+    <li>Click <strong>Fetch model list</strong> and add the models shown in the list</li>
+    <li>Go to Home, create an assistant or topic, select a model via <code>@</code> under the input box, and start using it</li>
+  </ol>
+  <img src="sceenshots/cherrystudiosetting.png" class="screenshot">
+  <img src="sceenshots/cherrystudiouse.png" class="screenshot">
 </section>
 
 <!-- Errors -->
